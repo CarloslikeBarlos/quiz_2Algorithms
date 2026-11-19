@@ -7,12 +7,12 @@ public:
 
         vector<vector<int>> dist(n, vector<int>(n, INF));
 
-        // Step 1: Distance to itself is 0
+        // If a city is 0 away from itself
         for (int i = 0; i < n; i++) {
             dist[i][i] = 0;
         }
 
-        // Step 2: Add roads
+        // Step 2: Add the directional roads
         for (int i = 0; i < edges.size(); i++) {
             int u = edges[i][0];
             int v = edges[i][1];
@@ -22,7 +22,7 @@ public:
             dist[v][u] = w;
         }
 
-        // Step 3: Floyd-Warshall
+        // Step 3: Floyd-Warshall to find shortest path 
         for (int k = 0; k < n; k++) {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
@@ -43,18 +43,18 @@ public:
 
             for (int j = 0; j < n; j++) {
                 if (i != j && dist[i][j] <= distanceThreshold) {
-                    count++;
+                    count++; //compares cities and see if they have a similiar distance threshold 
                 }
             }
 
-            if (count <= minCount) {
+            if (count <= minCount) 
+            {
                 minCount = count;
-                answer = i;
+                answer = i; 
+                //if cities have the same count the greater city win 
             }
         }
 
         return answer;
     }
 };
-
-
