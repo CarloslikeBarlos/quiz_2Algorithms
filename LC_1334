@@ -51,7 +51,7 @@ public:
             {
                 minCount = count;
                 answer = i; 
-                //if cities have the same count the greater city win 
+                //if cities have the same count the greater city wins
             }
         }
 
