@@ -12,7 +12,7 @@ public:
             dist[i][i] = 0;
         }
 
-        // Step 2: Add the directional roads
+        // Add the directional roads
         for (int i = 0; i < edges.size(); i++) {
             int u = edges[i][0];
             int v = edges[i][1];
@@ -22,7 +22,7 @@ public:
             dist[v][u] = w;
         }
 
-        // Step 3: Floyd-Warshall to find shortest path 
+        // Floyd-Warshall to find shortest path 
         for (int k = 0; k < n; k++) {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
@@ -34,7 +34,7 @@ public:
             }
         }
 
-        // Step 4: Count reachable neighbors
+        //Count reachable neighbors
         int answer = -1;
         int minCount = n;
 
